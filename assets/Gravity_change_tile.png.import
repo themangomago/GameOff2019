@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Leaps.png-7e62c0e1081749bbadb03de11164cc81.stex"
+path="res://.import/Gravity_change_tile.png-cde3ec43145021dd6e696cf98c7e9dda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Leaps.png"
-dest_files=[ "res://.import/Leaps.png-7e62c0e1081749bbadb03de11164cc81.stex" ]
+source_file="res://assets/Gravity_change_tile.png"
+dest_files=[ "res://.import/Gravity_change_tile.png-cde3ec43145021dd6e696cf98c7e9dda.stex" ]
 
 [params]
 

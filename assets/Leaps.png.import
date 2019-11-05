@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bounds.png-576f9c1e1fda1d32f8a44be01344010b.stex"
+path="res://.import/Leaps.png-a4eccfc3b4d5e24ae724bb9372406a74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bounds.png"
-dest_files=[ "res://.import/Bounds.png-576f9c1e1fda1d32f8a44be01344010b.stex" ]
+source_file="res://assets/Leaps.png"
+dest_files=[ "res://.import/Leaps.png-a4eccfc3b4d5e24ae724bb9372406a74.stex" ]
 
 [params]
 

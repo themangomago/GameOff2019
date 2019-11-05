@@ -8,7 +8,7 @@ var velocity := Vector2()
 
 
 func _ready():
-	assert name != "Player" # Instance the Leaps or Bounds scenes instead
+	assert(name != "Player") # Instance the Leaps or Bounds scenes instead
 
 
 func _physics_process(delta: float):
