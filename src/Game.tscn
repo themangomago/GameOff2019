@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://src/Leaps.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Bounds.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Player.gd" type="Script" id=3]
+[ext_resource path="res://src/Bounds.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node"]
 
@@ -17,8 +18,11 @@ tile_data = PoolIntArray( 327695, 12, 0, 327698, 13, 0, 393229, 12, 0, 393231, 0
 
 [node name="Leaps" parent="Level1" instance=ExtResource( 2 )]
 position = Vector2( 304, 322 )
+script = ExtResource( 3 )
 
-[node name="Bounds" parent="Level1" instance=ExtResource( 3 )]
+[node name="Bounds" parent="Level1" instance=ExtResource( 4 )]
+position = Vector2( 270, 320 )
+script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Level1"]
 current = true
