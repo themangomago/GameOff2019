@@ -45,11 +45,11 @@ func on_floor() -> bool:
 
 
 func update_moving() -> void:
-	assert """
+	assert("""
 	This makes moving a little more intuitive with the arrow keys
 	Shouldn't be needed for unmodified d-pads, but should be used just in case
 	Not needed for analog sticks; just get input strength
-	"""
+	""")
 	
 	var move_left = Input.is_action_pressed(controls.move_left)
 	var move_right = Input.is_action_pressed(controls.move_right)
