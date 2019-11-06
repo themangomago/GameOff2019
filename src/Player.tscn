@@ -6,6 +6,11 @@ extents = Vector2( 16, 16 )
 [node name="Player" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+
+[node name="FloorRay" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 1 )

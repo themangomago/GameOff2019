@@ -2,8 +2,20 @@ extends KinematicBody2D
 class_name Player
 
 
-export var jump_speed := Vector2(100, -200)
+export var jump_speed := Vector2(200, -200)
 export var gravity := Vector2(0, 500)
+export var friction := 500.0
+export var gravity_time_factor := 1.0
+
+var gravity_time := 0.0
+
+var controls := {
+	move_left = "",
+	move_right = "",
+	move_up = "",
+	move_down = "",
+	jump = ""
+}
 
 var velocity := Vector2()
 var moving := Vector2()
@@ -12,8 +24,24 @@ func _ready():
 	assert(name != "Player") # Instance the Leaps or Bounds scenes instead
 
 
-func jump():
-	velocity += jump_speed
+func jump(direction: Vector2):
+	velocity = jump_speed * direction
+
+
+func apply_gravity(delta: float):
+	if on_floor():
+		gravity_time = 0
+	else:
+		gravity_time += delta
+	velocity += gravity * delta + gravity * delta * gravity_time * gravity_time_factor
+
+
+func move():
+	velocity = move_and_slide(velocity, Vector2.UP)
+
+
+func on_floor() -> bool:
+	return $FloorRay.is_colliding()
 
 
 func update_moving() -> void:
@@ -23,29 +51,29 @@ func update_moving() -> void:
 	Not needed for analog sticks; just get input strength
 	"""
 	
-	var move_left = Input.is_action_pressed("move_left")
-	var move_right = Input.is_action_pressed("move_right")
-	var move_up = Input.is_action_pressed("move_up")
-	var move_down = Input.is_action_pressed("move_down")
+	var move_left = Input.is_action_pressed(controls.move_left)
+	var move_right = Input.is_action_pressed(controls.move_right)
+	var move_up = Input.is_action_pressed(controls.move_up)
+	var move_down = Input.is_action_pressed(controls.move_down)
 	
 	if not (move_left or move_right):
 		moving.x = 0
-	elif move_left and Input.is_action_just_released("move_right"):
+	elif move_left and Input.is_action_just_released(controls.move_right):
 		moving.x = -1
-	elif move_right and Input.is_action_just_released("move_left"):
+	elif move_right and Input.is_action_just_released(controls.move_left):
 		moving.x = 1
-	elif Input.is_action_just_pressed("move_left"):
+	elif Input.is_action_just_pressed(controls.move_left):
 		moving.x = -1
-	elif Input.is_action_just_pressed("move_right"):
+	elif Input.is_action_just_pressed(controls.move_right):
 		moving.x = 1
 	
 	if not (move_up or move_down):
 		moving.y = 0
-	elif move_down and Input.is_action_just_released("move_up"):
+	elif move_down and Input.is_action_just_released(controls.move_up):
 		moving.y = -1
-	elif move_up and Input.is_action_just_released("move_down"):
+	elif move_up and Input.is_action_just_released(controls.move_down):
 		moving.y = 1
-	elif Input.is_action_just_pressed("move_down"):
+	elif Input.is_action_just_pressed(controls.move_down):
 		moving.y = -1
-	elif Input.is_action_just_pressed("move_up"):
+	elif Input.is_action_just_pressed(controls.move_up):
 		moving.y = 1
