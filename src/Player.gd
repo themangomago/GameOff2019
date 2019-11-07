@@ -44,7 +44,14 @@ func on_floor() -> bool:
 	return $FloorRay.is_colliding()
 
 
-func update_moving() -> void:
+func face(dir: int):
+	# Updates $Sprite.flip_h based on dir
+	assert dir != 0
+	$Sprite.flip_h = dir < 0
+	
+
+
+func update_moving():
 	assert("""
 	This makes moving a little more intuitive with the arrow keys
 	Shouldn't be needed for unmodified d-pads, but should be used just in case
