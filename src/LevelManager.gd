@@ -10,7 +10,7 @@ var levels := [
 
 
 func _ready() -> void:
-	change_level(current_level)
+	pass
 
 
 func change_level(id: int):

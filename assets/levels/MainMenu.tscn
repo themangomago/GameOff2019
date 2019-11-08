@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/Hack-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/levels/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/Startscreen.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
+border_blend = true
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
+border_blend = true
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
+border_blend = true
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
+border_blend = true
+expand_margin_left = 7.0
+expand_margin_right = 7.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
+border_blend = true
+shadow_size = 1
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 7 )
+Button/styles/disabled = SubResource( 3 )
+Button/styles/focus = SubResource( 4 )
+Button/styles/hover = SubResource( 5 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 6 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "FadeOutMenu"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TitleTextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1, 1.5 ),
+"transitions": PoolRealArray( 2, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TitleTextureRect:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 18 ), Vector2( 32, 18 ), Vector2( 32, 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HBoxContainer:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.1, 1.5 ),
+"transitions": PoolRealArray( 2, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 270 ), Vector2( 0, 285 ), Vector2( 0, 285 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.368627, 0.12549, 0.321569, 1 )
+
+[node name="TitleTextureRect" type="TextureRect" parent="."]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.9
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 0.95
+custom_constants/separation = 30
+alignment = 1
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+margin_left = 103.0
+margin_top = 15.0
+margin_right = 202.0
+margin_bottom = 57.0
+size_flags_vertical = 4
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="HBoxContainer"]
+margin_left = 232.0
+margin_top = 15.0
+margin_right = 369.0
+margin_bottom = 57.0
+size_flags_vertical = 4
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer"]
+margin_left = 399.0
+margin_top = 15.0
+margin_right = 536.0
+margin_bottom = 57.0
+size_flags_vertical = 4
+text = "Credits"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeOutMenu"
+anims/FadeOutMenu = SubResource( 8 )
