@@ -1,74 +1,85 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/fonts/Hack-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/TimesNewPixel/TimesNewPixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/levels/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/Startscreen.png" type="Texture" id=3]
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.101961, 0.0627451, 0.0862745, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
-border_blend = true
-shadow_size = 1
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
-border_blend = true
-shadow_size = 1
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
-border_blend = true
-shadow_size = 1
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
-border_blend = true
+border_color = Color( 0.964706, 0.858824, 0.729412, 1 )
 expand_margin_left = 7.0
 expand_margin_right = 7.0
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 shadow_size = 1
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.376471, 0.188235, 0.282353, 1 )
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.368627, 0.12549, 0.321569, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.25098, 0.12549, 0.188235, 1 )
-border_blend = true
+border_color = Color( 0.454902, 0.788235, 0.619608, 1 )
+expand_margin_left = 7.0
+expand_margin_right = 7.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
 shadow_size = 1
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.694118, 0.2, 0.32549, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.964706, 0.858824, 0.729412, 1 )
+expand_margin_left = 7.0
+expand_margin_right = 7.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.368627, 0.12549, 0.321569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.964706, 0.858824, 0.729412, 1 )
+expand_margin_left = 7.0
+expand_margin_right = 7.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.152941, 0.0941176, 0.329412, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.454902, 0.788235, 0.619608, 1 )
+expand_margin_left = 7.0
+expand_margin_right = 7.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_size = 1
+
+[sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=2]
-default_font = SubResource( 7 )
-Button/styles/disabled = SubResource( 3 )
-Button/styles/focus = SubResource( 4 )
-Button/styles/hover = SubResource( 5 )
-Button/styles/normal = SubResource( 1 )
-Button/styles/pressed = SubResource( 6 )
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+Button/styles/disabled = SubResource( 12 )
+Button/styles/focus = SubResource( 11 )
+Button/styles/hover = SubResource( 9 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 10 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "FadeOutMenu"
@@ -125,13 +136,13 @@ tracks/3/keys = {
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = SubResource( 2 )
+theme = SubResource( 7 )
 script = ExtResource( 2 )
 
 [node name="BackgroundColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.368627, 0.12549, 0.321569, 1 )
+color = Color( 0.368627, 0.12549, 0.321569, 0 )
 
 [node name="TitleTextureRect" type="TextureRect" parent="."]
 anchor_left = 0.05
@@ -150,29 +161,35 @@ custom_constants/separation = 30
 alignment = 1
 
 [node name="StartButton" type="Button" parent="HBoxContainer"]
-margin_left = 103.0
-margin_top = 15.0
-margin_right = 202.0
-margin_bottom = 57.0
+margin_left = 165.0
+margin_top = 19.0
+margin_right = 227.0
+margin_bottom = 53.0
+focus_neighbour_left = NodePath("../CreditsButton")
+focus_neighbour_right = NodePath("../OptionsButton")
 size_flags_vertical = 4
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="HBoxContainer"]
-margin_left = 232.0
-margin_top = 15.0
-margin_right = 369.0
-margin_bottom = 57.0
+margin_left = 257.0
+margin_top = 19.0
+margin_right = 355.0
+margin_bottom = 53.0
+focus_neighbour_left = NodePath("../StartButton")
+focus_neighbour_right = NodePath("../CreditsButton")
 size_flags_vertical = 4
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer"]
-margin_left = 399.0
-margin_top = 15.0
-margin_right = 536.0
-margin_bottom = 57.0
+margin_left = 385.0
+margin_top = 19.0
+margin_right = 475.0
+margin_bottom = 53.0
+focus_neighbour_left = NodePath("../OptionsButton")
+focus_neighbour_right = NodePath("../StartButton")
 size_flags_vertical = 4
+disabled = true
 text = "Credits"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "FadeOutMenu"
 anims/FadeOutMenu = SubResource( 8 )
