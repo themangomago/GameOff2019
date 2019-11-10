@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/TimesNewPixel/TimesNewPixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/levels/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/Startscreen.png" type="Texture" id=3]
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.101961, 0.0627451, 0.0862745, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -17,7 +17,7 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 shadow_size = 1
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.368627, 0.12549, 0.321569, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -30,7 +30,7 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 shadow_size = 1
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.694118, 0.2, 0.32549, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -56,7 +56,7 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 shadow_size = 1
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.152941, 0.0941176, 0.329412, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -75,14 +75,90 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=7]
 default_font = SubResource( 6 )
-Button/styles/disabled = SubResource( 12 )
-Button/styles/focus = SubResource( 11 )
-Button/styles/hover = SubResource( 9 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 4 )
-Button/styles/pressed = SubResource( 10 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "FadeInLevelSelect"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelSelectLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 16 ), Vector2( 230, 36 ), Vector2( 230, 36 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LevelSelectLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Levels:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 110 ), Vector2( 192, 110 ), Vector2( 192, 90 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Levels:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LevelSelectLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.01, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Levels:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.51, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true ]
+}
 
 [sub_resource type="Animation" id=8]
-resource_name = "FadeOutMenu"
+resource_name = "FadeOutMainMenu"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("TitleTextureRect:self_modulate")
@@ -132,23 +208,50 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, 270 ), Vector2( 0, 285 ), Vector2( 0, 285 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("TitleTextureRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 1.49, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HBoxContainer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.09, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = SubResource( 7 )
 script = ExtResource( 2 )
 
 [node name="BackgroundColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.368627, 0.12549, 0.321569, 0 )
+mouse_filter = 2
+color = Color( 0.368627, 0.12549, 0.321569, 1 )
 
 [node name="TitleTextureRect" type="TextureRect" parent="."]
 anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.95
 anchor_bottom = 0.9
+mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 5
@@ -157,39 +260,71 @@ stretch_mode = 5
 anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 0.95
+mouse_filter = 2
 custom_constants/separation = 30
 alignment = 1
 
 [node name="StartButton" type="Button" parent="HBoxContainer"]
-margin_left = 165.0
-margin_top = 19.0
-margin_right = 227.0
-margin_bottom = 53.0
+margin_left = 168.0
+margin_top = 20.0
+margin_right = 228.0
+margin_bottom = 52.0
 focus_neighbour_left = NodePath("../CreditsButton")
 focus_neighbour_right = NodePath("../OptionsButton")
+mouse_filter = 1
 size_flags_vertical = 4
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="HBoxContainer"]
-margin_left = 257.0
-margin_top = 19.0
-margin_right = 355.0
-margin_bottom = 53.0
+margin_left = 258.0
+margin_top = 20.0
+margin_right = 354.0
+margin_bottom = 52.0
 focus_neighbour_left = NodePath("../StartButton")
 focus_neighbour_right = NodePath("../CreditsButton")
+mouse_filter = 1
 size_flags_vertical = 4
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="HBoxContainer"]
-margin_left = 385.0
-margin_top = 19.0
-margin_right = 475.0
-margin_bottom = 53.0
+margin_left = 384.0
+margin_top = 20.0
+margin_right = 472.0
+margin_bottom = 52.0
 focus_neighbour_left = NodePath("../OptionsButton")
 focus_neighbour_right = NodePath("../StartButton")
+mouse_filter = 1
 size_flags_vertical = 4
-disabled = true
 text = "Credits"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FadeOutMenu = SubResource( 8 )
+anims/FadeInLevelSelect = SubResource( 9 )
+anims/FadeOutMainMenu = SubResource( 8 )
+
+[node name="LevelSelectLabel" type="Label" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+margin_left = -90.0
+margin_top = -20.0
+margin_right = 90.0
+margin_bottom = 8.00003
+grow_horizontal = 2
+text = "Level Select :D"
+
+[node name="Levels" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.19 )
+anchor_left = 0.3
+anchor_top = 0.25
+anchor_right = 0.7
+anchor_bottom = 0.95
+margin_top = 20.0
+margin_bottom = 19.9995
+mouse_filter = 2
+custom_constants/separation = 10
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
