@@ -81,7 +81,7 @@ Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = SubResource( 5 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "FadeInLevelSelect"
 length = 1.5
 tracks/0/type = "value"
@@ -157,8 +157,7 @@ tracks/5/keys = {
 "values": [ false, false, true, true ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "FadeOutMainMenu"
+[sub_resource type="Animation" id=9]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("TitleTextureRect:self_modulate")
@@ -298,8 +297,8 @@ size_flags_vertical = 4
 text = "Credits"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FadeInLevelSelect = SubResource( 9 )
-anims/FadeOutMainMenu = SubResource( 8 )
+anims/FadeInLevelSelect = SubResource( 8 )
+anims/FadeOutMainMenu = SubResource( 9 )
 
 [node name="LevelSelectLabel" type="Label" parent="."]
 visible = false

@@ -57,3 +57,9 @@ func play_backwards(anim: String):
 
 func _on_StartButton_pressed() -> void:
 	show_level_select()
+
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PREDELETE:
+			print("Predelete!")

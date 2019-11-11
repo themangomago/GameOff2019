@@ -69,6 +69,7 @@ prefix = "Level"
 margin_left = 78.0
 margin_right = 108.0
 margin_bottom = 24.0
+focus_mode = 0
 mouse_filter = 1
 text = "Go"
 

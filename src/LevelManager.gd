@@ -34,14 +34,17 @@ func change_level(id: int):
 	if id >= levels.size() and OS.is_debug_build():
 		printerr("(LevelManager.gd) Level %d doesn't exist" % id)
 		return
-	if main_menu \
-	and main_menu is Node \
-	and main_menu in get_children() \
-	and is_instance_valid(main_menu) \
-	and main_menu.is_inside_tree():
+	if main_menu:
 		main_menu.queue_free()
-	else:
 		main_menu = null
+#	if main_menu \
+#	and main_menu is Node \
+#	and main_menu in get_children() \
+#	and is_instance_valid(main_menu) \
+#	and main_menu.is_inside_tree():
+#		main_menu.queue_free()
+#	else:
+#		main_menu = null
 	if level: level.queue_free()
 	current_level = id
 	level = levels[current_level].scene.instance()
