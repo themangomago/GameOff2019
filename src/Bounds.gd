@@ -13,7 +13,13 @@ func _init():
 	#controls.jump = "jump"
 
 
+func _ready():
+	$SkidRay1.position.x = -$CollisionShape2D.shape.extents.x + 1
+	$SkidRay2.position.x = $CollisionShape2D.shape.extents.x - 1
+
+
 func _physics_process(delta: float):
+	
 	
 	update_moving() # From Player.gd
 
@@ -21,7 +27,6 @@ func _physics_process(delta: float):
 		jump_direction.x = moving.x
 		face(moving.x)
 		$AnimationPlayer.play("Jump")
-	
 	apply_gravity(delta)
 	move()
 	
@@ -49,7 +54,8 @@ func _physics_process(delta: float):
 		elif velocity.x - f >= 0: velocity.x -= f
 		else: velocity.x = 0
 	else:
-		velocity.x = jump_speed.x * jump_direction.x
+		velocity.x = jump_speed.x * jump_direction.x * (0.5 + min((exp(jump_hold_time * 5) - 1), 0.5))
+	
 
 func anim_jump_callback():
 	jump(jump_direction)

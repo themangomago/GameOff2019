@@ -11,6 +11,16 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-[node name="FloorRay" type="RayCast2D" parent="."]
+[node name="FloorRay1" type="RayCast2D" parent="."]
+position = Vector2( -16, 0 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="FloorRay2" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="FloorRay3" type="RayCast2D" parent="."]
+position = Vector2( 16, 0 )
 enabled = true
 cast_to = Vector2( 0, 1 )

@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/Bounds.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 9.5 )
+extents = Vector2( 8, 7 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -75,11 +75,11 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 jump_speed = Vector2( 140, -150 )
 gravity = Vector2( 0, 250 )
-friction = 1000.0
+friction = 50000.0
 gravity_time_factor = 5.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( -1, -9.5 )
+position = Vector2( -1, -7 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]

@@ -18,3 +18,4 @@ position = Vector2( 300, 350 )
 
 [node name="Bounds" parent="." instance=ExtResource( 3 )]
 position = Vector2( 80, 270 )
+friction = 2000.0
