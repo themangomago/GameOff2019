@@ -75,7 +75,7 @@ func on_floor() -> bool:
 
 func face(dir: int):
 	# Updates $Sprite.flip_h based on dir
-	assert dir != 0
+	assert (dir != 0)
 	$Sprite.flip_h = dir < 0
 	
 
