@@ -43,7 +43,6 @@ func apply_gravity(delta: float):
 		# Either jumping and holding the jump button, or we're falling, apply normal gravity
 		gravity_time += delta
 	
-	
 	# Decide whether to apply normal or heavy gravity
 	if velocity.y < 0 and (moving.x == 0 if controls.jump == "" else moving.x == 0 or not Input.is_action_pressed(controls.jump)):
 		# Jumping but not holding the jump button -- apply more gravity

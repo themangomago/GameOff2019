@@ -20,7 +20,6 @@ func _ready():
 
 func _physics_process(delta: float):
 	
-	
 	update_moving() # From Player.gd
 
 	if moving.x != 0 and on_floor() and $AnimationPlayer.current_animation == "Idle":
