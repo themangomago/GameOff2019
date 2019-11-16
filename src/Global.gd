@@ -1,3 +1,3 @@
 extends Node
 
-onready var LevelManager: Node = get_tree().get_root().get_node("Game/LevelManager")
+onready var LevelManager: Node = get_tree().get_root().get_node_or_null("Game/LevelManager")

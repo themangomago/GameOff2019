@@ -1,9 +1,9 @@
 extends Player
 
-
 export var min_skid_velocity := 50.0
 
 var jump_direction := Vector2(1, 1)
+
 
 func _init():
 	controls.move_left = "p2_move_left"

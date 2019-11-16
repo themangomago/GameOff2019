@@ -72,7 +72,7 @@ func on_floor() -> bool:
 	return $FloorRay1.is_colliding() or $FloorRay2.is_colliding() or $FloorRay3.is_colliding()
 
 
-func face(dir: int):
+func face(dir: float):
 	# Updates $Sprite.flip_h based on dir
 	assert (dir != 0)
 	$Sprite.flip_h = dir < 0
