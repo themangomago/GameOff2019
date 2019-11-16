@@ -76,7 +76,13 @@ func face(dir: float):
 	# Updates $Sprite.flip_h based on dir
 	assert (dir != 0)
 	$Sprite.flip_h = dir < 0
-	
+
+
+func apply_friction(delta):
+	var f = friction * delta
+	if velocity.x + f <= 0: velocity.x += f
+	elif velocity.x - f >= 0: velocity.x -= f
+	else: velocity.x = 0
 
 
 func update_moving():

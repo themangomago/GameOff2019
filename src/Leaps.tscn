@@ -33,7 +33,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08 ),
+"times": PoolRealArray( 0, 0.07 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 8, 12 ]
@@ -59,7 +59,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.08 ),
+"times": PoolRealArray( 0.07 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -149,6 +149,9 @@ tracks/0/keys = {
 [node name="Leaps" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 jump_speed = Vector2( 0, -400 )
+friction = 1250.0
+move_speed = 1750.0
+move_max_speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0, -13.5 )
@@ -157,8 +160,8 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
-hframes = 29
-frame = 12
+hframes = 31
+frame = 28
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"

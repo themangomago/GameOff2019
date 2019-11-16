@@ -4,12 +4,12 @@ var alive = true
 
 func reset():
 	self.show()
-	$Area/CollisionShape2D.disabled = false
+	$Area/CollisionShape2D.set_deferred("disabled", false)
 	alive = true
 
 func remove():
 	self.hide()
-	$Area/CollisionShape2D.disabled = true
+	$Area/CollisionShape2D.set_deferred("disabled", true)
 	alive = false
 
 func _on_Area2D_body_entered(body):

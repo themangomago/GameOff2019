@@ -6,10 +6,10 @@ var jump_direction := Vector2(1, 1)
 
 
 func _init():
-	controls.move_left = "p2_move_left"
-	controls.move_right = "p2_move_right"
-	controls.move_up = "p2_move_up"
-	controls.move_down = "p2_move_down"
+	controls.move_left = "p1_move_left"
+	controls.move_right = "p1_move_right"
+	controls.move_up = "p1_move_up"
+	controls.move_down = "p1_move_down"
 	#controls.jump = "jump"
 
 
@@ -47,14 +47,10 @@ func _physics_process(delta: float):
 		if $AnimationPlayer.current_animation == "":
 			$AnimationPlayer.play("Idle")
 		
-		# Apply friction
-		var f = friction * delta
-		if velocity.x + f <= 0: velocity.x += f
-		elif velocity.x - f >= 0: velocity.x -= f
-		else: velocity.x = 0
+		apply_friction(delta)
 	else:
 		velocity.x = jump_speed.x * jump_direction.x * (0.5 + min((exp(jump_hold_time * 5) - 1), 0.5))
-	
+
 
 func anim_jump_callback():
 	jump(jump_direction)

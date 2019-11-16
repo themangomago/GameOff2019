@@ -1,5 +1,7 @@
 extends Player
 
+export var move_speed := 500.0
+export var move_max_speed := 500.0
 export var jump_min_multiplier := 0.5
 export var jump_max_multiplier := 1.0
 export var jump_charge_time := 1.0
@@ -25,20 +27,31 @@ func _physics_process(delta: float):
 	# When the jump button is released, JumpCharge -> Jump
 	# Jump will transition to JumpLoop automatically
 	
-	if Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation == "Idle":
+	if Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation in ["Idle", "Walk"]:
 		$AnimationPlayer.play("JumpWindup")
 	elif on_floor() and $AnimationPlayer.current_animation == "JumpLoop":
 		$AnimationPlayer.play("Idle")
 	
-	if on_floor() and Input.is_action_pressed(controls.jump):
+	if on_floor() and Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation in ["JumpWindup", "JumpCharge"]:
 		_jump_charge_time += delta
-	elif _jump_charge_time > 0 and on_floor() and not Input.is_action_pressed(controls.jump):
+	elif _jump_charge_time > 0 and on_floor() and not Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation in ["JumpWindup", "JumpCharge"]:
 		released_charge = true
 		$AnimationPlayer.play("Jump")
 	
+	if moving.x != 0 and on_floor() and $AnimationPlayer.current_animation == "Idle":
+		face(moving.x)
+		$AnimationPlayer.play("Walk")
+	elif moving.x == 0 and on_floor() and $AnimationPlayer.current_animation == "Walk":
+		$AnimationPlayer.play("Idle")
+	if $AnimationPlayer.current_animation == "Walk":
+		velocity.x = clamp(velocity.x + move_speed * moving.x * delta, -move_max_speed, move_max_speed)
+		face(moving.x)
 	
 	if $AnimationPlayer.current_animation == "JumpCharge" and not on_floor():
 		assert false # We're charging a jump but not on the ground -- fix this bug later
+	
+	if on_floor():
+		apply_friction(delta)
 	
 	#apply_gravity(delta)
 	apply_leaps_gravity(delta)
