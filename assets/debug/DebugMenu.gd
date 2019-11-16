@@ -37,3 +37,27 @@ func _on_BoundsSBX_value_changed(value: float):
 func _on_BoundsSBY_value_changed(value: float):
 	if not Global.LevelManager: return
 	Global.LevelManager.level.find_node("Bounds").position.y = value
+
+
+onready var FPSCheckBox = find_node("FPSCheckBox")
+onready var FPSSpinBox = find_node("FPSSpinBox")
+func _on_FPSCheckBox_toggled(button_pressed: bool) -> void:
+	Engine.target_fps = FPSSpinBox.value as int if button_pressed else 0
+func _on_FPSSpinBox_value_changed(value: float) -> void:
+	Engine.target_fps = value as int if FPSCheckBox.pressed else 0
+
+
+onready var PFPSCheckBox = find_node("PFPSCheckBox")
+onready var PFPSSpinBox = find_node("PFPSSpinBox")
+func _on_PFPSCheckBox_toggled(button_pressed: bool) -> void:
+	Engine.iterations_per_second = PFPSSpinBox.value as int if button_pressed else 60
+func _on_PFPSSpinBox_value_changed(value: float) -> void:
+	Engine.iterations_per_second = value as int if PFPSCheckBox.pressed else 60
+
+
+onready var TimescaleCheckBox = find_node("TimescaleCheckBox")
+onready var TimescaleSpinBox = find_node("TimescaleSpinBox")
+func _on_TimescaleCheckBox_toggled(button_pressed: bool) -> void:
+	Engine.time_scale = TimescaleSpinBox.value if button_pressed else 1.0
+func _on_TimescaleSpinBox_value_changed(value: float) -> void:
+	Engine.time_scale = value if TimescaleCheckBox.pressed else 1.0

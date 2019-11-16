@@ -21,8 +21,8 @@ grow_horizontal = 0
 mouse_filter = 2
 
 [node name="PC1" type="PanelContainer" parent="Control/VBC"]
-margin_left = 83.0
-margin_right = 166.0
+margin_left = 102.0
+margin_right = 185.0
 margin_bottom = 38.0
 mouse_filter = 2
 size_flags_horizontal = 8
@@ -39,33 +39,33 @@ text = "Debug"
 
 [node name="SettingsMenu" type="PanelContainer" parent="Control/VBC"]
 margin_top = 42.0
-margin_right = 166.0
-margin_bottom = 184.0
+margin_right = 185.0
+margin_bottom = 286.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/VBC/SettingsMenu"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 159.0
-margin_bottom = 135.0
+margin_right = 178.0
+margin_bottom = 237.0
 mouse_filter = 2
 custom_constants/separation = 10
 
-[node name="HBC" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_left = 22.0
-margin_right = 130.0
+[node name="HBC1" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_left = 31.0
+margin_right = 139.0
 margin_bottom = 24.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
-[node name="LevelSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC"]
+[node name="LevelSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC1"]
 margin_right = 74.0
 margin_bottom = 24.0
 mouse_filter = 1
 max_value = 9.0
 prefix = "Level"
 
-[node name="ChangeLevelButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC"]
+[node name="ChangeLevelButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC1"]
 margin_left = 78.0
 margin_right = 108.0
 margin_bottom = 24.0
@@ -74,8 +74,9 @@ mouse_filter = 1
 text = "Go"
 
 [node name="LeapsVBC" type="VBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_left = 9.0
 margin_top = 34.0
-margin_right = 152.0
+margin_right = 161.0
 margin_bottom = 76.0
 mouse_filter = 2
 size_flags_horizontal = 4
@@ -108,8 +109,9 @@ max_value = 600.0
 prefix = "Y"
 
 [node name="BoundsVBC" type="VBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_left = 9.0
 margin_top = 86.0
-margin_right = 152.0
+margin_right = 161.0
 margin_bottom = 128.0
 mouse_filter = 2
 size_flags_horizontal = 4
@@ -140,9 +142,80 @@ margin_bottom = 24.0
 mouse_filter = 1
 max_value = 600.0
 prefix = "Y"
+
+[node name="HBC2" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_top = 138.0
+margin_right = 171.0
+margin_bottom = 162.0
+mouse_filter = 2
+
+[node name="FPSCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC2"]
+margin_right = 89.0
+margin_bottom = 24.0
+focus_mode = 0
+mouse_filter = 1
+text = "Force FPS"
+
+[node name="FPSSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC2"]
+margin_left = 93.0
+margin_right = 167.0
+margin_bottom = 24.0
+mouse_filter = 1
+value = 60.0
+
+[node name="HBC3" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_top = 172.0
+margin_right = 171.0
+margin_bottom = 196.0
+mouse_filter = 2
+
+[node name="PFPSCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC3"]
+margin_right = 88.0
+margin_bottom = 24.0
+focus_mode = 0
+mouse_filter = 1
+text = "Phys. FPS"
+
+[node name="PFPSSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC3"]
+margin_left = 92.0
+margin_right = 166.0
+margin_bottom = 24.0
+mouse_filter = 1
+min_value = 1.0
+value = 60.0
+
+[node name="HBC4" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_top = 206.0
+margin_right = 171.0
+margin_bottom = 230.0
+mouse_filter = 2
+custom_constants/separation = 0
+
+[node name="TimescaleCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC4"]
+margin_right = 93.0
+margin_bottom = 24.0
+focus_mode = 0
+mouse_filter = 1
+text = "Timescale"
+
+[node name="TimescaleSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC4"]
+margin_left = 93.0
+margin_right = 167.0
+margin_bottom = 24.0
+mouse_filter = 1
+min_value = 0.01
+max_value = 10.0
+step = 0.01
+value = 1.0
 [connection signal="toggled" from="Control/VBC/PC1/ShowCheckBox" to="." method="_on_ShowCheckBox_toggled"]
-[connection signal="pressed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC/ChangeLevelButton" to="." method="_on_ChangeLevelButton_pressed"]
+[connection signal="pressed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC1/ChangeLevelButton" to="." method="_on_ChangeLevelButton_pressed"]
 [connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC/HBC/LeapsSBX" to="." method="_on_LeapsSBX_value_changed"]
 [connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC/HBC/LeapsSBY" to="." method="_on_LeapsSBY_value_changed"]
 [connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC/HBC/BoundsSBX" to="." method="_on_BoundsSBX_value_changed"]
 [connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC/HBC/BoundsSBY" to="." method="_on_BoundsSBY_value_changed"]
+[connection signal="toggled" from="Control/VBC/SettingsMenu/VBoxContainer/HBC2/FPSCheckBox" to="." method="_on_FPSCheckBox_toggled"]
+[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC2/FPSSpinBox" to="." method="_on_FPSSpinBox_value_changed"]
+[connection signal="toggled" from="Control/VBC/SettingsMenu/VBoxContainer/HBC3/PFPSCheckBox" to="." method="_on_PFPSCheckBox_toggled"]
+[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC3/PFPSSpinBox" to="." method="_on_PFPSSpinBox_value_changed"]
+[connection signal="toggled" from="Control/VBC/SettingsMenu/VBoxContainer/HBC4/TimescaleCheckBox" to="." method="_on_TimescaleCheckBox_toggled"]
+[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC4/TimescaleSpinBox" to="." method="_on_TimescaleSpinBox_value_changed"]
