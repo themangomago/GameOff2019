@@ -69,7 +69,8 @@ func on_floor() -> bool:
 #			break
 #	return touched_floor
 	
-	return $FloorRay1.is_colliding() or $FloorRay2.is_colliding() or $FloorRay3.is_colliding()
+	return is_on_floor()
+	#return $FloorRay1.is_colliding() or $FloorRay2.is_colliding() or $FloorRay3.is_colliding()
 
 
 func face(dir: float):
@@ -78,6 +79,7 @@ func face(dir: float):
 
 
 func apply_friction(delta):
+	# TODO: Fix this having different behavior at different physics_fps
 	var f = friction * delta
 	if velocity.x + f <= 0: velocity.x += f
 	elif velocity.x - f >= 0: velocity.x -= f

@@ -161,7 +161,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
 hframes = 31
-frame = 28
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"
@@ -171,3 +171,6 @@ anims/JumpCharge = SubResource( 4 )
 anims/JumpLoop = SubResource( 5 )
 anims/JumpWindup = SubResource( 6 )
 anims/Walk = SubResource( 7 )
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

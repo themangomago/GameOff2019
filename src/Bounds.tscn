@@ -71,7 +71,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[node name="Bounds" instance=ExtResource( 1 )]
+[node name="Bounds" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 jump_speed = Vector2( 140, -150 )
 gravity = Vector2( 0, 250 )

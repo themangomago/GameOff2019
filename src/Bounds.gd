@@ -21,14 +21,14 @@ func _ready():
 func _physics_process(delta: float):
 	
 	update_moving() # From Player.gd
-
+	
+	apply_gravity(delta)
+	move()
+	
 	if moving.x != 0 and on_floor() and $AnimationPlayer.current_animation == "Idle":
 		jump_direction.x = moving.x
 		face(moving.x)
 		$AnimationPlayer.play("Jump")
-	apply_gravity(delta)
-	move()
-	
 	
 	for ray in [$SkidRay1, $SkidRay2]:
 		pass#ray.cast_to.y = velocity.y / 10
