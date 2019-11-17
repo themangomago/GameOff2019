@@ -61,3 +61,7 @@ func _on_TimescaleCheckBox_toggled(button_pressed: bool) -> void:
 	Engine.time_scale = TimescaleSpinBox.value if button_pressed else 1.0
 func _on_TimescaleSpinBox_value_changed(value: float) -> void:
 	Engine.time_scale = value if TimescaleCheckBox.pressed else 1.0
+
+
+func _on_LightBtn_button_up():
+	Global.toggleLights()

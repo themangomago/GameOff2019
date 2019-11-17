@@ -262,6 +262,9 @@ anchor_bottom = 0.95
 mouse_filter = 2
 custom_constants/separation = 30
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartButton" type="Button" parent="HBoxContainer"]
 margin_left = 168.0

@@ -49,6 +49,7 @@ func change_level(id: int):
 	current_level = id
 	level = levels[current_level].scene.instance()
 	add_child(level)
+	Global.updateLights()
 
 
 func change_level_to(level: Dictionary):
