@@ -48,7 +48,7 @@ func _physics_process(delta: float):
 			$AnimationPlayer.play("Idle")
 		
 		apply_friction(delta)
-	else:
+	elif velocity.y <= 0:
 		velocity.x = jump_speed.x * jump_direction.x * (0.5 + min((exp(jump_hold_time * 5) - 1), 0.5))
 
 

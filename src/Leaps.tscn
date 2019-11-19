@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Leaps.gd" type="Script" id=2]
 [ext_resource path="res://assets/Leaps.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 7.9, 13.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 13.5 )
@@ -22,10 +25,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 22, 23, 24, 23 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 8, 6.5 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 8, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8, 11.5 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Jump"
 length = 0.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -66,6 +91,30 @@ tracks/2/keys = {
 "method": "anim_jump_callback"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 12 ), SubResource( 11 ), SubResource( 10 ), SubResource( 1 ), SubResource( 13 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -6.5 ), Vector2( 0, -9.5 ), Vector2( 0, -11.5 ), Vector2( 0, -13.5 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "JumpCharge"
@@ -86,7 +135,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "JumpLoop"
-length = 0.9
+length = 0.45
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -95,14 +144,21 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 13, 14, 15, 16, 17, 18, 19, 20, 21 ]
 }
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 5 )
+
 [sub_resource type="Animation" id=6]
 length = 0.3
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -128,6 +184,30 @@ tracks/1/keys = {
 "args": [ "JumpCharge", -1, 1.0, false ],
 "method": "play"
 } ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.07, 0.13, 0.19, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 1 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.07, 0.13, 0.19, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -13.5 ), Vector2( 0, -12.5 ), Vector2( 0, -11.5 ), Vector2( 0, -9.5 ), Vector2( 0, -6.5 ), Vector2( 0, -5 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -155,13 +235,13 @@ move_max_speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0, -13.5 )
-shape = SubResource( 1 )
+shape = SubResource( 13 )
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
 hframes = 31
-frame = 5
+frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"

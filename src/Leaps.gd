@@ -55,7 +55,7 @@ func _physics_process(delta: float):
 		apply_friction(delta)
 	else: # not on_floor()
 		if $AnimationPlayer.current_animation == "JumpCharge":
-			assert(false) # We're charging a jump but not on the ground -- fix this bug later
+			pass#assert(false) # We're charging a jump but not on the ground -- fix this bug later
 		if $AnimationPlayer.current_animation == "Idle":
 			$AnimationPlayer.play("JumpLoop")
 	

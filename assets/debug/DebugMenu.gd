@@ -26,16 +26,16 @@ func _on_ChangeLevelButton_pressed() -> void:
 
 
 func _on_LeapsSBX_value_changed(value: float):
-	if not Global.LevelManager: return
+	if not Global.LevelManager or not Global.LevelManager.level: return
 	Global.LevelManager.level.find_node("Leaps").position.x = value
 func _on_LeapsSBY_value_changed(value: float):
-	if not Global.LevelManager: return
+	if not Global.LevelManager or not Global.LevelManager.level: return
 	Global.LevelManager.level.find_node("Leaps").position.y = value
 func _on_BoundsSBX_value_changed(value: float):
-	if not Global.LevelManager: return
+	if not Global.LevelManager or not Global.LevelManager.level: return
 	Global.LevelManager.level.find_node("Bounds").position.x = value
 func _on_BoundsSBY_value_changed(value: float):
-	if not Global.LevelManager: return
+	if not Global.LevelManager or not Global.LevelManager.level: return
 	Global.LevelManager.level.find_node("Bounds").position.y = value
 
 
