@@ -4,9 +4,6 @@
 [ext_resource path="res://src/Leaps.gd" type="Script" id=2]
 [ext_resource path="res://assets/Leaps.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 7.9, 13.5 )
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 13.5 )
 
@@ -46,6 +43,9 @@ extents = Vector2( 8, 9.5 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 8, 11.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 7.9, 13.5 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Jump"
@@ -235,13 +235,13 @@ move_max_speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0, -13.5 )
-shape = SubResource( 13 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
 hframes = 31
-frame = 12
+frame = 22
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"
