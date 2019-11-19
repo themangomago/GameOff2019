@@ -1,6 +1,7 @@
 extends Node2D
 
 export(Types.Direction) var direction = Types.Direction.Top
+export(NodePath) var ButtonNode = null
 export(int) var tiles = 3
 
 const SPEED_PER_TILE = 0.5
@@ -18,7 +19,12 @@ func _ready():
 			tweenValues[1] = Vector2(position.x - tiles * 16, position.y)
 		_:
 			tweenValues[1] = Vector2(position.x + tiles * 16, position.y)
+	
 	tweenStart()
+	if ButtonNode:
+		#Button dependand
+		$Tween.stop_all()
+		
 
 
 func tweenStart():
