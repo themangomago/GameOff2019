@@ -2,14 +2,14 @@
 
 [ext_resource path="res://assets/tileset/bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/tileset/TileMapLevel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Leaps.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Bounds.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Objects/Torch.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Objects/Apple.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/objects/ExitDoor.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Objects/OneWayPlat.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/Objects/Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Objects/OneWayPlat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Objects/Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Objects/Button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Leaps.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Bounds.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Torch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/Apple.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/ExitDoor.tscn" type="PackedScene" id=10]
 
 [node name="Level1" type="Node"]
 
@@ -31,29 +31,29 @@ limit_bottom = 360
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="OneWayPlat" parent="Objects" instance=ExtResource( 8 )]
+[node name="OneWayPlat" parent="Objects" instance=ExtResource( 3 )]
 position = Vector2( 32, 224 )
 
-[node name="Platform" parent="Objects" instance=ExtResource( 9 )]
+[node name="Platform" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 32, 48 )
 direction = 2
 tiles = 5
 
-[node name="Button" parent="Objects" instance=ExtResource( 10 )]
+[node name="Button" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 96, 288 )
 
-[node name="Leaps" parent="." instance=ExtResource( 3 )]
+[node name="Leaps" parent="." instance=ExtResource( 6 )]
 position = Vector2( 60, 304 )
 
-[node name="Bounds" parent="." instance=ExtResource( 4 )]
+[node name="Bounds" parent="." instance=ExtResource( 7 )]
 position = Vector2( 120, 96 )
 jump_speed = Vector2( 160, -150 )
 
-[node name="Torch" parent="." instance=ExtResource( 5 )]
+[node name="Torch" parent="." instance=ExtResource( 8 )]
 position = Vector2( 208, 128 )
 
-[node name="Apple" parent="." instance=ExtResource( 6 )]
+[node name="Apple" parent="." instance=ExtResource( 9 )]
 position = Vector2( 48, 176 )
 
-[node name="ExitDoor" parent="." instance=ExtResource( 7 )]
+[node name="ExitDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 464, 272 )
