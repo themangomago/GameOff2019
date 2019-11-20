@@ -9,16 +9,16 @@ const SPEED_PER_TILE = 0.5
 var tweenValues = [Vector2(), Vector2()] 
 
 func _ready():
-	tweenValues[0] = $KinematicBody2D.position
+	tweenValues[0] = position
 	match direction:
 		Types.Direction.Top:
-			tweenValues[1] = Vector2($KinematicBody2D.position.x, $KinematicBody2D.position.y - tiles * 16)
+			tweenValues[1] = Vector2(position.x, position.y - tiles * 16)
 		Types.Direction.Down:
-			tweenValues[1] = Vector2($KinematicBody2D.position.x, $KinematicBody2D.position.y + tiles * 16)
+			tweenValues[1] = Vector2(position.x, position.y + tiles * 16)
 		Types.Direction.Left:
-			tweenValues[1] = Vector2($KinematicBody2D.position.x - tiles * 16, $KinematicBody2D.position.y)
+			tweenValues[1] = Vector2(position.x - tiles * 16, position.y)
 		_:
-			tweenValues[1] = Vector2($KinematicBody2D.position.x + tiles * 16, $KinematicBody2D.position.y)
+			tweenValues[1] = Vector2(position.x + tiles * 16, position.y)
 	
 	tweenStart()
 	if ButtonNode:
@@ -28,7 +28,7 @@ func _ready():
 
 
 func tweenStart():
-	$Tween.interpolate_property($KinematicBody2D, "position", $KinematicBody2D.position, tweenValues[1], SPEED_PER_TILE * tiles, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(self, "position", position, tweenValues[1], SPEED_PER_TILE * tiles, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
 #warning-ignore:unused_argument
