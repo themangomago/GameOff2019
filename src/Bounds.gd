@@ -44,12 +44,16 @@ func _physics_process(delta: float):
 		if $AnimationPlayer.current_animation == "Skid":
 			$AnimationPlayer.play("Idle")
 		
-		if $AnimationPlayer.current_animation == "":
+		if $AnimationPlayer.current_animation == "Fall":
 			$AnimationPlayer.play("Idle")
 		
 		apply_friction(delta)
-	elif velocity.y <= 0:
-		velocity.x = jump_speed.x * jump_direction.x * (0.5 + min((exp(jump_hold_time * 5) - 1), 0.5))
+	else:
+		if $AnimationPlayer.current_animation == "Idle":
+			$AnimationPlayer.play("Fall")
+		
+		if velocity.y <= 0:
+			velocity.x = jump_speed.x * jump_direction.x * (0.5 + min((exp(jump_hold_time * 5) - 1), 0.5))
 
 
 func anim_jump_callback():

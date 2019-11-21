@@ -27,6 +27,15 @@ func _physics_process(delta: float):
 	# When the jump button is released, JumpCharge -> Jump
 	# Jump will transition to JumpLoop automatically
 	
+#	if velocity.y < 0 and $AnimationPlayer.current_animation in ["Jump", "JumpLoop"]:
+#		var bounds = get_tree().get_nodes_in_group("bounds")[0]
+#
+#		for i in bounds.get_slide_count():
+#			var c = bounds.get_slide_collision(i)
+#			if c.collider and c.collider.is_in_group("player") and c.collider.name == name:
+#				print("test")
+#				bounds.velocity += velocity
+	
 	apply_leaps_gravity(delta)
 	move()
 	

@@ -58,6 +58,12 @@ func apply_gravity(delta: float):
 
 func move():
 	velocity = move_and_slide(velocity, Vector2.UP)
+	# Didn't work great, leaving the code here for future reference
+#	for i in get_slide_count():
+#		var c = get_slide_collision(i) as KinematicCollision2D
+#		if c.collider and c.collider.is_in_group("player") and c.collider.name != name:
+#			assert("velocity" in c.collider)
+#			c.get_collider().velocity += c.remainder
 
 
 func on_floor() -> bool:
