@@ -33,7 +33,7 @@ func _ready():
 	$FloorRay3.position.x = collision_width - 1
 
 
-func jump(direction: Vector2):
+func jump(direction:=Vector2.ONE):
 	velocity = jump_speed * direction
 
 

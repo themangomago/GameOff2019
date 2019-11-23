@@ -39,6 +39,21 @@ func _physics_process(delta: float):
 	apply_leaps_gravity(delta)
 	move()
 	
+	for i in get_slide_count():
+		var c = get_slide_collision(i)
+		if c.collider:
+			var col = c.get_collider()
+			
+			# If we're bumping into Bounds,
+			if (col.name == "Bounds"
+			# from below,
+			and (global_position.y - col.global_position.y) > $CollisionShape2D.shape.extents.y
+			# and we're jumping,
+			and $AnimationPlayer.current_animation in ["Jump", "JumpLoop"]):
+				# then make Bounds do a double jump
+				velocity += c.remainder
+				bounce_off_bounds(col)
+	
 	if on_floor():
 		if Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation in ["Idle", "Walk"]:
 			$AnimationPlayer.play("JumpWindup")
@@ -71,6 +86,13 @@ func _physics_process(delta: float):
 	#apply_gravity(delta)
 #	apply_leaps_gravity(delta)
 #	move()
+
+
+func bounce_off_bounds(bounds: KinematicBody2D):
+	bounds.jump()
+	bounds.get_node("AnimationPlayer").play("Fall")
+	bounds.gravity_time = 0.0
+	#bounds.jump_hold_time = 0.5
 
 
 func apply_leaps_gravity(delta: float):
