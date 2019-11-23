@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 
+export var collision_width := 8.0
 export var jump_speed := Vector2(200, -200)
 export var gravity := Vector2(0, 500)
 export var friction := 2000.0
@@ -27,9 +28,9 @@ func _ready():
 	assert(name != "Player") # Instance the Leaps or Bounds scenes instead
 	
 	# More accurate on_floor() tracking
-	$FloorRay1.position.x = -$CollisionShape2D.shape.extents.x + 1
+	$FloorRay1.position.x = -collision_width + 1
 	$FloorRay2.position.x = 0
-	$FloorRay3.position.x = $CollisionShape2D.shape.extents.x - 1
+	$FloorRay3.position.x = collision_width - 1
 
 
 func jump(direction: Vector2):

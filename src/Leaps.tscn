@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/Leaps.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 13.5 )
+extents = Vector2( 7.95, 13.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.4
@@ -149,6 +149,7 @@ tracks/0/keys = {
 "leaps",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+collision_width = 7.95
 jump_speed = Vector2( 0, -400 )
 friction = 1250.0
 move_speed = 1750.0

@@ -14,8 +14,8 @@ func _init():
 
 
 func _ready():
-	$SkidRay1.position.x = -$CollisionShape2D.shape.extents.x + 1
-	$SkidRay2.position.x = $CollisionShape2D.shape.extents.x - 1
+	$SkidRay1.position.x = -collision_width + 1
+	$SkidRay2.position.x = collision_width - 1
 
 
 func _physics_process(delta: float):
