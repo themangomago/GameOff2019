@@ -62,4 +62,4 @@ func _on_StartButton_pressed() -> void:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_PREDELETE:
-			print("Predelete!")
+			pass

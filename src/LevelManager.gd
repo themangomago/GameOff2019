@@ -64,3 +64,12 @@ func next_level():
 
 func _on_main_menu_change_level(level: Dictionary):
 	change_level_to(level)
+
+
+func reload_level():
+	change_level(current_level)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("restart") and level and not main_menu:
+		reload_level()
