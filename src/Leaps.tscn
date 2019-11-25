@@ -48,7 +48,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 0.1
+length = 0.05
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -57,7 +57,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.07 ),
+"times": PoolRealArray( 0, 0.04 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 8, 12 ]
@@ -69,7 +69,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1 ),
+"times": PoolRealArray( 0.05 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "JumpLoop", -1, 1.0, false ],
@@ -83,7 +83,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.07 ),
+"times": PoolRealArray( 0.03 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -97,7 +97,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.05 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 7.95, 5.5 ), Vector2( 7.95, 13.5 ) ]
@@ -109,7 +109,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.05 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -5.5 ), Vector2( 0, -13.5 ) ]
@@ -241,7 +241,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -13.5 ) ]
 }
 
-[node name="Leaps" groups=[
+[node name="Leaps" index="0" groups=[
 "leaps",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )

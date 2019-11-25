@@ -47,13 +47,19 @@ func _physics_process(delta: float):
 			# If we're bumping into Bounds,
 			if (col.name == "Bounds"
 			# from below,
-			and (global_position.y - col.global_position.y) > $CollisionShape2D.shape.extents.y
-			# and we're jumping,
-			and $AnimationPlayer.current_animation in ["Jump", "JumpLoop"]):
-				# then make Bounds do a double jump
-				velocity += c.remainder
-				bounce_off_bounds(col)
-				print(on_floor())
+			and (global_position.y - col.global_position.y) > $CollisionShape2D.shape.extents.y):
+				# and we're jumping,
+				if $AnimationPlayer.current_animation in ["JumpLoop"]:
+					# then make Bounds do a double jump
+					velocity += c.remainder
+					bounce_off_bounds(col)
+				# or if we're still on the ground,
+				elif $AnimationPlayer.current_animation in ["Jump"]:
+					# then just gently push Bounds upwards and don't jump
+					velocity = Vector2()
+					# Gets Leaps un-stuck from the floor
+					global_position.y -= $CollisionShape2D.shape.extents.y / 2.6
+					col.global_position.y = global_position.y - $CollisionShape2D.shape.extents.y * 2
 	
 	if on_floor():
 		if Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation in ["Idle", "Walk"]:
