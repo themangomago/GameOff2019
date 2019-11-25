@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Objects/Button.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/button.png" type="Texture" id=2]
 [ext_resource path="res://assets/objects/buttonIndicator.png" type="Texture" id=3]
 [ext_resource path="res://assets/smolLight.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/staticButton.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 3 )
@@ -45,5 +46,10 @@ position = Vector2( 27, -11 )
 texture = ExtResource( 4 )
 color = Color( 1, 0.101961, 0.0352941, 1 )
 energy = 0.1
+
+[node name="SndStaticButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+bus = "Sound"
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered" flags=3]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited" flags=3]

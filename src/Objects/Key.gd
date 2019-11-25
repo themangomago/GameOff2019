@@ -6,4 +6,10 @@ func _on_Area2D_body_entered(body):
 		var door = get_tree().get_nodes_in_group("door")
 		assert(door !=  null and door.size() > 0 )
 		door[0].unlock()
-		queue_free()
+		
+		$Sprite.hide()
+		$AudioStreamPlayer2D.play()
+
+
+func _on_AudioStreamPlayer2D_finished():
+	queue_free()

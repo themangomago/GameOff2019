@@ -41,6 +41,8 @@ func _on_Area2D_body_entered(body):
 		_switchVisualState(ButtonVisuals.On)
 		targetRef.activate()
 
+		$SndStaticButton.play()
+
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("player"):
 		if not staticSwitch:

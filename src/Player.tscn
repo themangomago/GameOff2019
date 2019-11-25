@@ -36,3 +36,6 @@ cast_to = Vector2( 0, 1 )
 texture = ExtResource( 1 )
 texture_scale = 0.5
 energy = 0.5
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+bus = "Sound"
