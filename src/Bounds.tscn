@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Bounds.gd" type="Script" id=2]
 [ext_resource path="res://assets/Bounds.png" type="Texture" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( -8, -8, 8, -8, 7.9, 8, -7.9, 8 )
 
 [sub_resource type="Animation" id=2]
@@ -99,9 +99,10 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[node name="Bounds" groups=[
+[node name="Bounds" index="0" groups=[
 "bounds",
 ] instance=ExtResource( 1 )]
+z_index = 3
 script = ExtResource( 2 )
 collision_width = 7.9
 jump_speed = Vector2( 140, -150 )
@@ -111,7 +112,7 @@ gravity_time_factor = 5.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( -1, -8 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -16 )
