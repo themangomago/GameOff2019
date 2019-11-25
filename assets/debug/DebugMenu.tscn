@@ -47,14 +47,22 @@ mouse_filter = 2
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 174.0
-margin_bottom = 327.0
+margin_bottom = 361.0
 mouse_filter = 2
 custom_constants/separation = 10
 
+[node name="LevelTransitionCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+margin_left = 19.0
+margin_right = 148.0
+margin_bottom = 24.0
+size_flags_horizontal = 4
+text = "Level Transition"
+
 [node name="HBC1" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
 margin_left = 29.0
+margin_top = 34.0
 margin_right = 137.0
-margin_bottom = 24.0
+margin_bottom = 58.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
@@ -74,22 +82,22 @@ mouse_filter = 1
 text = "Go"
 
 [node name="MoveLeapsButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_top = 34.0
+margin_top = 68.0
 margin_right = 167.0
-margin_bottom = 54.0
+margin_bottom = 88.0
 text = "Move Leaps"
 
 [node name="MoveBoundsButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_top = 64.0
+margin_top = 98.0
 margin_right = 167.0
-margin_bottom = 84.0
+margin_bottom = 118.0
 text = "Move Bounds"
 
 [node name="LeapsVBC" type="VBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
 margin_left = 7.0
-margin_top = 94.0
+margin_top = 128.0
 margin_right = 159.0
-margin_bottom = 136.0
+margin_bottom = 170.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
@@ -122,9 +130,9 @@ prefix = "Y"
 
 [node name="BoundsVBC" type="VBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
 margin_left = 7.0
-margin_top = 146.0
+margin_top = 180.0
 margin_right = 159.0
-margin_bottom = 188.0
+margin_bottom = 222.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
@@ -156,9 +164,9 @@ max_value = 600.0
 prefix = "Y"
 
 [node name="HBC2" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_top = 198.0
+margin_top = 232.0
 margin_right = 167.0
-margin_bottom = 222.0
+margin_bottom = 256.0
 mouse_filter = 2
 
 [node name="FPSCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC2"]
@@ -176,9 +184,9 @@ mouse_filter = 1
 value = 60.0
 
 [node name="HBC3" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_top = 232.0
+margin_top = 266.0
 margin_right = 167.0
-margin_bottom = 256.0
+margin_bottom = 290.0
 mouse_filter = 2
 
 [node name="PFPSCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC3"]
@@ -197,9 +205,9 @@ min_value = 1.0
 value = 60.0
 
 [node name="HBC4" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_top = 266.0
+margin_top = 300.0
 margin_right = 167.0
-margin_bottom = 290.0
+margin_bottom = 324.0
 mouse_filter = 2
 custom_constants/separation = 0
 
@@ -221,9 +229,9 @@ step = 0.01
 value = 1.0
 
 [node name="LightCtrl" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
-margin_top = 300.0
+margin_top = 334.0
 margin_right = 167.0
-margin_bottom = 320.0
+margin_bottom = 354.0
 
 [node name="LightBtn" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer/LightCtrl"]
 margin_right = 95.0

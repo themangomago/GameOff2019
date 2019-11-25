@@ -53,6 +53,7 @@ func _physics_process(delta: float):
 				# then make Bounds do a double jump
 				velocity += c.remainder
 				bounce_off_bounds(col)
+				print(on_floor())
 	
 	if on_floor():
 		if Input.is_action_pressed(controls.jump) and $AnimationPlayer.current_animation in ["Idle", "Walk"]:

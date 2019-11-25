@@ -20,36 +20,55 @@ var levels := [
 
 
 func _ready() -> void:
-	load_main_menu()
+	load_main_menu(true)
 
 
-func load_main_menu():
+func _wait_for_anim(anim: String) -> GDScriptFunctionState:
+	$AnimationPlayer.play(anim)
+	$ColorRect.raise()
+	return yield($AnimationPlayer, "animation_finished")
+
+
+func fade_in():
+	# Use with yield(fade_in(), "completed")
+	$ColorRect.mouse_filter = Control.MOUSE_FILTER_STOP
+	$ColorRect.release_focus()
+	yield(_wait_for_anim("FadeIn"), "completed")
+	$ColorRect.mouse_filter = Control.MOUSE_FILTER_PASS
+func fade_out():
+	# Use with yield(fade_out(), "completed")
+	$ColorRect.release_focus()
+	$ColorRect.mouse_filter = Control.MOUSE_FILTER_STOP
+	yield(_wait_for_anim("FadeOut"), "completed")
+
+
+func load_main_menu(instantly=false):
+	if not instantly:
+		yield(fade_out(), "completed")
 	main_menu = MainMenu.instance()
 	if level: level.queue_free()
 	add_child(main_menu)
 	main_menu.connect("change_level", self, "_on_main_menu_change_level")
+	if not instantly:
+		fade_in()
 
 
-func change_level(id: int):
+func change_level(id: int, instantly=false):
+	if not instantly:
+		yield(fade_out(), "completed")
 	if id >= levels.size() and OS.is_debug_build():
 		printerr("(LevelManager.gd) Level %d doesn't exist" % id)
 		return
 	if main_menu:
 		main_menu.queue_free()
 		main_menu = null
-#	if main_menu \
-#	and main_menu is Node \
-#	and main_menu in get_children() \
-#	and is_instance_valid(main_menu) \
-#	and main_menu.is_inside_tree():
-#		main_menu.queue_free()
-#	else:
-#		main_menu = null
 	if level: level.queue_free()
 	current_level = id
 	level = levels[current_level].scene.instance()
 	add_child(level)
 	Global.updateLights()
+	if not instantly:
+		fade_in()
 
 
 func change_level_to(level: Dictionary):

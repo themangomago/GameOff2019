@@ -31,11 +31,14 @@ func _on_ShowCheckBox_toggled(button_pressed: bool) -> void:
 	SettingsMenu.visible = button_pressed
 
 
+onready var LevelTransitionCheckBox = find_node("LevelTransitionCheckBox")
 onready var LevelSpinBox = find_node("LevelSpinBox")
 onready var ChangeLevelButton = find_node("ChangeLevelButton")
 func _on_ChangeLevelButton_pressed() -> void:
 	if not Global.LevelManager: return
-	Global.LevelManager.change_level(LevelSpinBox.value)
+	Global.LevelManager.change_level(
+		LevelSpinBox.value,
+		not LevelTransitionCheckBox.pressed)
 
 
 func _on_LeapsSBX_value_changed(value: float):
