@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Objects/ExitDoor.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/objects/door.png" type="Texture" id=2]
+[ext_resource path="res://assets/objects/bars.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 0.5 )
 
-[node name="ExitDoor" type="Area2D"]
+[node name="ExitDoor" type="Area2D" groups=[
+"door",
+]]
 show_behind_parent = true
 script = ExtResource( 1 )
 
@@ -14,10 +17,14 @@ script = ExtResource( 1 )
 position = Vector2( 0, -0.5 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Door" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+
+[node name="Bars" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, -16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_ExitDoor_body_entered"]

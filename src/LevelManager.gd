@@ -91,4 +91,5 @@ func reload_level():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and level and not main_menu:
+		Global.hasKey = false
 		reload_level()

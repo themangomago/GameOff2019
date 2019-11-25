@@ -1,7 +1,7 @@
 extends Node2D
 
 export(Types.Direction) var direction = Types.Direction.Top
-export(NodePath) var ButtonNode = null
+export(bool) var isActivated = true
 export(int) var tiles = 3
 
 const SPEED_PER_TILE = 0.5
@@ -20,14 +20,17 @@ func _ready():
 		_:
 			tweenValues[1] = Vector2(position.x + tiles * 16, position.y)
 	
-	tweenStart()
-	if ButtonNode:
-		#Button dependand
-		$Tween.stop_all()
-		
+	if isActivated:
+		tweenStart()
 
+func activate():
+	tweenStart()
+
+func deactivate():
+	$Tween.remove_all()
 
 func tweenStart():
+	#TODO: for dynamic button the time has to be adjusted for the remaining track
 	$Tween.interpolate_property(self, "position", position, tweenValues[1], SPEED_PER_TILE * tiles, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
