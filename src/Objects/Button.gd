@@ -36,7 +36,7 @@ func _switchVisualState(to):
 			$Light2D.hide()
 
 func _on_Area2D_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and (not triggered if staticSwitch else true):
 		triggered = true
 		_switchVisualState(ButtonVisuals.On)
 		targetRef.activate()
