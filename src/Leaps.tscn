@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Leaps.gd" type="Script" id=2]
 [ext_resource path="res://assets/Leaps.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/leaps_jump.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/charge.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.95, 5.5 )
+extents = Vector2( 7.95, 13.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.4
@@ -142,6 +144,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 5, 6, 7, 6 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Charge:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.45
@@ -264,14 +278,14 @@ move_speed = 1750.0
 move_max_speed = 100.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0, -5.5 )
+position = Vector2( 0, -13.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
 hframes = 31
-frame = 8
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"
@@ -281,6 +295,16 @@ anims/JumpCharge = SubResource( 4 )
 anims/JumpLoop = SubResource( 5 )
 anims/JumpWindup = SubResource( 6 )
 anims/Walk = SubResource( 7 )
+
+[node name="Jump" parent="." index="7"]
+stream = ExtResource( 4 )
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource( 5 )
+volume_db = -18.0
+pitch_scale = 1.4
+attenuation = 2.0
+bus = "Sound"
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

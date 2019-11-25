@@ -40,9 +40,12 @@ tiles = 5
 
 [node name="Button" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 96, 288 )
+connectedNodeInstance = NodePath("../RollerShutter")
 
 [node name="Button2" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 16, 288 )
+staticSwitch = true
+connectedNodeInstance = NodePath("../Platform")
 
 [node name="RollerShutter" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 224, 96 )
