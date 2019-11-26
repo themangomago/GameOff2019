@@ -37,11 +37,11 @@ func _physics_process(delta: float):
 		pass#$Sprite.flip_h = not velocity.x > 0
 	
 	#print((($AnimationPlayer.current_animation == "Jump") as String)[0], ((velocity.y > 0) as String)[0], (($SkidRay1.is_colliding() or $SkidRay2.is_colliding()) as String)[0])
-	if velocity.y > 0 and abs(velocity.x) > min_skid_velocity and ($SkidRay1.is_colliding() or $SkidRay2.is_colliding()) and not $AnimationPlayer.current_animation == "Skid":
+	if velocity.y > 0 and abs(velocity.x) > min_skid_velocity and ($SkidRay1.is_colliding() or $SkidRay2.is_colliding()) and not $AnimationPlayer.current_animation in ["Skid", "SkidLoop"]:
 		$AnimationPlayer.play("Skid")
 	
 	if on_floor():
-		if $AnimationPlayer.current_animation == "Skid":
+		if $AnimationPlayer.current_animation in ["Skid", "SkidLoop"]:
 			$AnimationPlayer.play("Idle")
 		
 		if $AnimationPlayer.current_animation == "Fall":

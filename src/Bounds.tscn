@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Bounds.gd" type="Script" id=2]
@@ -7,6 +7,21 @@
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( -8, -8, 8, -8, 7.9, 8, -7.9, 8 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 11, 14 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fall"
@@ -97,6 +112,36 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+length = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 8, 10 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "SkidLoop", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "SkidLoop"
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -109,7 +154,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 3 ]
+"values": [ 10 ]
 }
 
 [node name="Bounds" groups=[
@@ -130,15 +175,17 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -16 )
 texture = ExtResource( 3 )
-hframes = 8
-frame = 2
+hframes = 15
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"
+anims/Dead = SubResource( 6 )
 anims/Fall = SubResource( 2 )
 anims/Idle = SubResource( 3 )
 anims/Jump = SubResource( 4 )
 anims/Skid = SubResource( 5 )
+anims/SkidLoop = SubResource( 7 )
 
 [node name="SkidRay1" type="RayCast2D" parent="." index="4"]
 position = Vector2( -13, 0 )

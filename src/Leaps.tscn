@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Leaps.gd" type="Script" id=2]
@@ -8,6 +8,21 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.95, 13.5 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 31, 34 ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.4
@@ -284,11 +299,12 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
-hframes = 31
-frame = 7
+hframes = 35
+frame = 34
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "Idle"
+anims/Dead = SubResource( 8 )
 anims/Idle = SubResource( 2 )
 anims/Jump = SubResource( 3 )
 anims/JumpCharge = SubResource( 4 )
