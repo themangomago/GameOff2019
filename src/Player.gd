@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
+signal death(this)
 
 export var collision_width := 8.0
 export var jump_speed := Vector2(200, -200)
@@ -31,6 +32,8 @@ func _ready():
 	$FloorRay1.position.x = -collision_width + 1
 	$FloorRay2.position.x = 0
 	$FloorRay3.position.x = collision_width - 1
+	# Topray is modified in leaps.gd and bounds.gd because their collision
+	# shapes aren't the same
 
 
 func jump(direction:=Vector2.ONE):
@@ -80,6 +83,15 @@ func on_floor() -> bool:
 	#return $FloorRay1.is_colliding() or $FloorRay2.is_colliding() or $FloorRay3.is_colliding()
 
 
+func player_on_head() -> Node:
+	var player: Node
+	for ray in [$TopRay1, $TopRay2]:
+		if ray.is_colliding() and ray.get_collider().is_in_group("player"):
+			player = ray.get_collider()
+			break
+	return player
+
+
 func face(dir: float):
 	# Updates $Sprite.flip_h based on dir
 	$Sprite.flip_h = dir < 0
@@ -126,3 +138,11 @@ func update_moving():
 		moving.y = -1
 	elif Input.is_action_just_pressed(controls.move_up):
 		moving.y = 1
+
+func die():
+	velocity = Vector2()
+	$CollisionShape2D.disabled = true
+	if $AnimationPlayer.current_animation == "Dead": return
+	$AnimationPlayer.play("Dead")
+	yield($AnimationPlayer, "animation_finished")
+	emit_signal("death", self)

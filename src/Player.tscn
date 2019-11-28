@@ -39,3 +39,13 @@ energy = 0.5
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 bus = "Sound"
+
+[node name="TopRay1" type="RayCast2D" parent="."]
+position = Vector2( -16, -32 )
+enabled = true
+cast_to = Vector2( 0, -0.5 )
+
+[node name="TopRay2" type="RayCast2D" parent="."]
+position = Vector2( 16, -32 )
+enabled = true
+cast_to = Vector2( 0, -0.5 )

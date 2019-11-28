@@ -10,11 +10,11 @@ func _ready() -> void:
 	for level in Global.LevelManager.levels:
 		var panel = LevelPanel.instance()
 		panel.level = level
-		$Levels.add_child(panel)
+		$Levels/VBC.add_child(panel)
 		panel.connect("change_level", self, "_on_level_panel_change_level")
 	
 	$TitleTextureRect.visible = true
-	$HBoxContainer.visible = true
+	$HBC.visible = true
 	$LevelSelectLabel.visible = false
 	$Levels.visible = false
 
@@ -43,7 +43,7 @@ func show_level_select():
 
 
 func toggle_buttons(toggled: bool):
-	for button in $HBoxContainer.get_children():
+	for button in $HBC.get_children():
 		button.disabled = not toggled
 
 

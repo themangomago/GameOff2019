@@ -17,7 +17,7 @@ func _ready():
 			tweenValues[1] = Vector2(position.x, position.y + tiles * 16)
 		Types.Direction.Left:
 			tweenValues[1] = Vector2(position.x - tiles * 16, position.y)
-		_:
+		Types.Direction.Right:
 			tweenValues[1] = Vector2(position.x + tiles * 16, position.y)
 	
 	if isActivated:
@@ -31,7 +31,23 @@ func deactivate():
 
 func tweenStart():
 	#TODO: for dynamic button the time has to be adjusted for the remaining track
-	$Tween.interpolate_property(self, "position", position, tweenValues[1], SPEED_PER_TILE * tiles, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	# It can now adjust the time for a vertical platform, horizontal code isn't done yet
+	var time: float = SPEED_PER_TILE * tiles
+	match direction:
+		Types.Direction.Top, Types.Direction.Down:
+			time *= (1 - (position.y - tweenValues[0].y) / (tweenValues[1].y - tweenValues[0].y))
+		Types.Direction.Left:
+			assert(false)
+		Types.Direction.Right:
+			assert(false)
+	$Tween.interpolate_property(
+		self,
+		"position",
+		position,
+		tweenValues[1],
+		max(time, 0.01),
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN_OUT)
 	$Tween.start()
 
 #warning-ignore:unused_argument

@@ -5,14 +5,17 @@
 [node name="DebugMenu" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Control" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 640, 0 )
 mouse_filter = 2
 
-[node name="VBC" type="VBoxContainer" parent="Control"]
+[node name="VBC" type="VBoxContainer" parent="CanvasLayer/Control"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
@@ -20,14 +23,14 @@ margin_bottom = 40.0
 grow_horizontal = 0
 mouse_filter = 2
 
-[node name="PC1" type="PanelContainer" parent="Control/VBC"]
+[node name="PC1" type="PanelContainer" parent="CanvasLayer/Control/VBC"]
 margin_left = 98.0
 margin_right = 181.0
 margin_bottom = 38.0
 mouse_filter = 2
 size_flags_horizontal = 8
 
-[node name="ShowCheckBox" type="CheckBox" parent="Control/VBC/PC1"]
+[node name="ShowCheckBox" type="CheckBox" parent="CanvasLayer/Control/VBC/PC1"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 76.0
@@ -37,13 +40,13 @@ mouse_filter = 1
 enabled_focus_mode = 0
 text = "Debug"
 
-[node name="SettingsMenu" type="PanelContainer" parent="Control/VBC"]
+[node name="SettingsMenu" type="PanelContainer" parent="CanvasLayer/Control/VBC"]
 margin_top = 42.0
 margin_right = 181.0
-margin_bottom = 376.0
+margin_bottom = 410.0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBC/SettingsMenu"]
+[node name="VBC" type="VBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 174.0
@@ -51,14 +54,14 @@ margin_bottom = 361.0
 mouse_filter = 2
 custom_constants/separation = 10
 
-[node name="LevelTransitionCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="LevelTransitionCheckBox" type="CheckBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_left = 19.0
 margin_right = 148.0
 margin_bottom = 24.0
 size_flags_horizontal = 4
 text = "Level Transition"
 
-[node name="HBC1" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="HBC1" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_left = 29.0
 margin_top = 34.0
 margin_right = 137.0
@@ -66,14 +69,14 @@ margin_bottom = 58.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
-[node name="LevelSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC1"]
+[node name="LevelSpinBox" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC1"]
 margin_right = 74.0
 margin_bottom = 24.0
 mouse_filter = 1
 max_value = 9.0
 prefix = "Level"
 
-[node name="ChangeLevelButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC1"]
+[node name="ChangeLevelButton" type="Button" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC1"]
 margin_left = 78.0
 margin_right = 108.0
 margin_bottom = 24.0
@@ -81,19 +84,23 @@ focus_mode = 0
 mouse_filter = 1
 text = "Go"
 
-[node name="MoveLeapsButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="MoveLeapsButton" type="Button" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_top = 68.0
 margin_right = 167.0
 margin_bottom = 88.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Move Leaps"
 
-[node name="MoveBoundsButton" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="MoveBoundsButton" type="Button" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_top = 98.0
 margin_right = 167.0
 margin_bottom = 118.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Move Bounds"
 
-[node name="LeapsVBC" type="VBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="LeapsVBC" type="VBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_left = 7.0
 margin_top = 128.0
 margin_right = 159.0
@@ -101,26 +108,26 @@ margin_bottom = 170.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
-[node name="LeapsLabel" type="Label" parent="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC"]
+[node name="LeapsLabel" type="Label" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/LeapsVBC"]
 margin_right = 152.0
 margin_bottom = 14.0
 text = "Leaps Position"
 align = 1
 
-[node name="HBC" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC"]
+[node name="HBC" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/LeapsVBC"]
 margin_top = 18.0
 margin_right = 152.0
 margin_bottom = 42.0
 mouse_filter = 2
 
-[node name="LeapsSBX" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC/HBC"]
+[node name="LeapsSBX" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/LeapsVBC/HBC"]
 margin_right = 74.0
 margin_bottom = 24.0
 mouse_filter = 1
 max_value = 600.0
 prefix = "X"
 
-[node name="LeapsSBY" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC/HBC"]
+[node name="LeapsSBY" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/LeapsVBC/HBC"]
 margin_left = 78.0
 margin_right = 152.0
 margin_bottom = 24.0
@@ -128,7 +135,7 @@ mouse_filter = 1
 max_value = 600.0
 prefix = "Y"
 
-[node name="BoundsVBC" type="VBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="BoundsVBC" type="VBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_left = 7.0
 margin_top = 180.0
 margin_right = 159.0
@@ -136,26 +143,26 @@ margin_bottom = 222.0
 mouse_filter = 2
 size_flags_horizontal = 4
 
-[node name="BoundsLabel" type="Label" parent="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC"]
+[node name="BoundsLabel" type="Label" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/BoundsVBC"]
 margin_right = 152.0
 margin_bottom = 14.0
 text = "Bounds Position"
 align = 1
 
-[node name="HBC" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC"]
+[node name="HBC" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/BoundsVBC"]
 margin_top = 18.0
 margin_right = 152.0
 margin_bottom = 42.0
 mouse_filter = 2
 
-[node name="BoundsSBX" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC/HBC"]
+[node name="BoundsSBX" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/BoundsVBC/HBC"]
 margin_right = 74.0
 margin_bottom = 24.0
 mouse_filter = 1
 max_value = 600.0
 prefix = "X"
 
-[node name="BoundsSBY" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC/HBC"]
+[node name="BoundsSBY" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/BoundsVBC/HBC"]
 margin_left = 78.0
 margin_right = 152.0
 margin_bottom = 24.0
@@ -163,40 +170,40 @@ mouse_filter = 1
 max_value = 600.0
 prefix = "Y"
 
-[node name="HBC2" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="HBC2" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_top = 232.0
 margin_right = 167.0
 margin_bottom = 256.0
 mouse_filter = 2
 
-[node name="FPSCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC2"]
+[node name="FPSCheckBox" type="CheckBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC2"]
 margin_right = 89.0
 margin_bottom = 24.0
 focus_mode = 0
 mouse_filter = 1
 text = "Force FPS"
 
-[node name="FPSSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC2"]
+[node name="FPSSpinBox" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC2"]
 margin_left = 93.0
 margin_right = 167.0
 margin_bottom = 24.0
 mouse_filter = 1
 value = 60.0
 
-[node name="HBC3" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="HBC3" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_top = 266.0
 margin_right = 167.0
 margin_bottom = 290.0
 mouse_filter = 2
 
-[node name="PFPSCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC3"]
+[node name="PFPSCheckBox" type="CheckBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC3"]
 margin_right = 88.0
 margin_bottom = 24.0
 focus_mode = 0
 mouse_filter = 1
 text = "Phys. FPS"
 
-[node name="PFPSSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC3"]
+[node name="PFPSSpinBox" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC3"]
 margin_left = 92.0
 margin_right = 166.0
 margin_bottom = 24.0
@@ -204,21 +211,21 @@ mouse_filter = 1
 min_value = 1.0
 value = 60.0
 
-[node name="HBC4" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="HBC4" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_top = 300.0
 margin_right = 167.0
 margin_bottom = 324.0
 mouse_filter = 2
 custom_constants/separation = 0
 
-[node name="TimescaleCheckBox" type="CheckBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC4"]
+[node name="TimescaleCheckBox" type="CheckBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC4"]
 margin_right = 93.0
 margin_bottom = 24.0
 focus_mode = 0
 mouse_filter = 1
 text = "Timescale"
 
-[node name="TimescaleSpinBox" type="SpinBox" parent="Control/VBC/SettingsMenu/VBoxContainer/HBC4"]
+[node name="TimescaleSpinBox" type="SpinBox" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC4"]
 margin_left = 93.0
 margin_right = 167.0
 margin_bottom = 24.0
@@ -228,30 +235,30 @@ max_value = 10.0
 step = 0.01
 value = 1.0
 
-[node name="LightCtrl" type="HBoxContainer" parent="Control/VBC/SettingsMenu/VBoxContainer"]
+[node name="LightCtrl" type="HBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
 margin_top = 334.0
 margin_right = 167.0
 margin_bottom = 354.0
 
-[node name="LightBtn" type="Button" parent="Control/VBC/SettingsMenu/VBoxContainer/LightCtrl"]
+[node name="LightBtn" type="Button" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC/LightCtrl"]
 margin_right = 95.0
 margin_bottom = 20.0
 text = "Toggle Lights"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="toggled" from="Control/VBC/PC1/ShowCheckBox" to="." method="_on_ShowCheckBox_toggled"]
-[connection signal="pressed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC1/ChangeLevelButton" to="." method="_on_ChangeLevelButton_pressed"]
-[connection signal="pressed" from="Control/VBC/SettingsMenu/VBoxContainer/MoveLeapsButton" to="." method="_on_MoveLeapsButton_pressed"]
-[connection signal="pressed" from="Control/VBC/SettingsMenu/VBoxContainer/MoveBoundsButton" to="." method="_on_MoveBoundsButton_pressed"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC/HBC/LeapsSBX" to="." method="_on_LeapsSBX_value_changed"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/LeapsVBC/HBC/LeapsSBY" to="." method="_on_LeapsSBY_value_changed"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC/HBC/BoundsSBX" to="." method="_on_BoundsSBX_value_changed"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/BoundsVBC/HBC/BoundsSBY" to="." method="_on_BoundsSBY_value_changed"]
-[connection signal="toggled" from="Control/VBC/SettingsMenu/VBoxContainer/HBC2/FPSCheckBox" to="." method="_on_FPSCheckBox_toggled"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC2/FPSSpinBox" to="." method="_on_FPSSpinBox_value_changed"]
-[connection signal="toggled" from="Control/VBC/SettingsMenu/VBoxContainer/HBC3/PFPSCheckBox" to="." method="_on_PFPSCheckBox_toggled"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC3/PFPSSpinBox" to="." method="_on_PFPSSpinBox_value_changed"]
-[connection signal="toggled" from="Control/VBC/SettingsMenu/VBoxContainer/HBC4/TimescaleCheckBox" to="." method="_on_TimescaleCheckBox_toggled"]
-[connection signal="value_changed" from="Control/VBC/SettingsMenu/VBoxContainer/HBC4/TimescaleSpinBox" to="." method="_on_TimescaleSpinBox_value_changed"]
-[connection signal="button_up" from="Control/VBC/SettingsMenu/VBoxContainer/LightCtrl/LightBtn" to="." method="_on_LightBtn_button_up"]
+[connection signal="toggled" from="CanvasLayer/Control/VBC/PC1/ShowCheckBox" to="." method="_on_ShowCheckBox_toggled"]
+[connection signal="pressed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC1/ChangeLevelButton" to="." method="_on_ChangeLevelButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/MoveLeapsButton" to="." method="_on_MoveLeapsButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/MoveBoundsButton" to="." method="_on_MoveBoundsButton_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/LeapsVBC/HBC/LeapsSBX" to="." method="_on_LeapsSBX_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/LeapsVBC/HBC/LeapsSBY" to="." method="_on_LeapsSBY_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/BoundsVBC/HBC/BoundsSBX" to="." method="_on_BoundsSBX_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/BoundsVBC/HBC/BoundsSBY" to="." method="_on_BoundsSBY_value_changed"]
+[connection signal="toggled" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC2/FPSCheckBox" to="." method="_on_FPSCheckBox_toggled"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC2/FPSSpinBox" to="." method="_on_FPSSpinBox_value_changed"]
+[connection signal="toggled" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC3/PFPSCheckBox" to="." method="_on_PFPSCheckBox_toggled"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC3/PFPSSpinBox" to="." method="_on_PFPSSpinBox_value_changed"]
+[connection signal="toggled" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC4/TimescaleCheckBox" to="." method="_on_TimescaleCheckBox_toggled"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC4/TimescaleSpinBox" to="." method="_on_TimescaleSpinBox_value_changed"]
+[connection signal="button_up" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/LightCtrl/LightBtn" to="." method="_on_LightBtn_button_up"]

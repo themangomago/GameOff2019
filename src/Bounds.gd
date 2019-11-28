@@ -16,9 +16,16 @@ func _init():
 func _ready():
 	$SkidRay1.position.x = -collision_width + 1
 	$SkidRay2.position.x = collision_width - 1
+	$TopRay1.position.x = -collision_width + 1
+	$TopRay2.position.x = collision_width - 1
+	for ray in [$TopRay1, $TopRay2]:
+		ray.position.y = -16 # Collision height (magic number)
 
 
 func _physics_process(delta: float):
+	
+	if $AnimationPlayer.current_animation == "Dead":
+		return
 	
 	update_moving() # From Player.gd
 	
