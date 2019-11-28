@@ -2,13 +2,11 @@ extends Node
 
 signal mouse_button_pressed(pos)
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+var visible: bool = OS.is_debug_build() setget set_visible
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SettingsMenu.visible = false
+	set_visible(visible)
 
 
 func _input(event: InputEvent):
@@ -21,9 +19,11 @@ func _input(event: InputEvent):
 func _process(delta: float):
 	for _l in _ls: snap_label_to_mouse(_l)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+
+func set_visible(new_visible: bool):
+	visible = new_visible
+	$CanvasLayer/Control.visible = visible
+
 
 onready var ShowCheckBox = find_node("ShowCheckBox")
 onready var SettingsMenu = find_node("SettingsMenu")

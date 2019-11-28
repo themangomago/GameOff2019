@@ -389,11 +389,10 @@ anims/Walk = SubResource( 10 )
 [node name="Jump" parent="." index="7"]
 stream = ExtResource( 4 )
 
-[node name="Charge" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="Charge" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource( 5 )
 volume_db = -18.0
 pitch_scale = 1.4
-attenuation = 2.0
 bus = "Sound"
 
 [node name="BounceRay1" type="RayCast2D" parent="." index="11"]

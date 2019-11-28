@@ -49,12 +49,14 @@ func _wait_for_anim(anim: String) -> GDScriptFunctionState:
 
 func fade_in():
 	# Use with yield(fade_in(), "completed")
+	$Control.grab_focus()
 	$Control.release_focus()
 	$Control.mouse_filter = Control.MOUSE_FILTER_STOP
 	yield(_wait_for_anim("FadeIn"), "completed")
 	$Control.mouse_filter = Control.MOUSE_FILTER_PASS
 func fade_out():
 	# Use with yield(fade_out(), "completed")
+	$Control.grab_focus()
 	$Control.release_focus()
 	$Control.mouse_filter = Control.MOUSE_FILTER_STOP
 	yield(_wait_for_anim("FadeOut"), "completed")

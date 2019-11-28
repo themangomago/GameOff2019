@@ -180,7 +180,7 @@ tracks/0/keys = {
 "values": [ 10 ]
 }
 
-[node name="Bounds" index="0" groups=[
+[node name="Bounds" groups=[
 "bounds",
 ] instance=ExtResource( 1 )]
 z_index = 3

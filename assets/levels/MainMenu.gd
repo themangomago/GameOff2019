@@ -59,7 +59,27 @@ func _on_StartButton_pressed() -> void:
 	show_level_select()
 
 
-func _notification(what: int) -> void:
-	match what:
-		NOTIFICATION_PREDELETE:
-			pass
+func _on_OptionsButton_pressed() -> void:
+	$OptionsMenu.show()
+
+
+func _on_CreditsButton_pressed() -> void:
+	var c = $Credits/AnimationPlayer
+	if not c.is_playing():
+		c.play("FadeInCredits")
+		grab_focus()
+		release_focus()
+
+
+func _input(event: InputEvent) -> void:
+	if not is_inside_tree(): return
+	var c = $Credits/AnimationPlayer
+	
+	if ($Credits.visible
+	and not c.is_playing()
+	and   (Input.is_action_just_pressed("ui_cancel")
+		or Input.is_action_just_pressed("ui_select")
+		or Input.is_action_just_pressed("ui_accept")
+		or Input.is_action_just_pressed("ui_click"))
+	):
+		c.play("FadeOutCredits")

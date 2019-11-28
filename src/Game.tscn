@@ -73,6 +73,7 @@ script = ExtResource( 1 )
 [node name="Control" type="Control" parent="LevelManager"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LevelManager"]
 layer = 0
