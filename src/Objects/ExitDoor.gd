@@ -19,9 +19,14 @@ func _on_ExitDoor_body_entered(body: PhysicsBody2D) -> void:
 	if not body: return
 	if body.is_in_group("player"):
 		if not requireKey or Global.hasKey:
-			print("You Win")
+			win()
 
 
 func set_active(new_active: bool):
 	active = new_active
 	# Play an opening animation?
+
+
+func win():
+	if not Global.LevelManager: return
+	Global.LevelManager.next_level()

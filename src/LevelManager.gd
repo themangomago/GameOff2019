@@ -81,6 +81,7 @@ func clear_level():
 	if main_menu:
 		main_menu.queue_free()
 		main_menu = null
+	last_valid_positions = [Vector2(), Vector2()]
 
 
 func change_level(id: int, instantly=false):
