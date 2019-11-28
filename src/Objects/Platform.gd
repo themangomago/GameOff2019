@@ -36,10 +36,9 @@ func tweenStart():
 	match direction:
 		Types.Direction.Top, Types.Direction.Down:
 			time *= (1 - (position.y - tweenValues[0].y) / (tweenValues[1].y - tweenValues[0].y))
-		Types.Direction.Left:
-			assert(false)
-		Types.Direction.Right:
-			assert(false)
+		Types.Direction.Left, Types.Direction.Right:
+			#assert(false)
+			time *= (1 - (position.x - tweenValues[0].x) / (tweenValues[1].x - tweenValues[0].x))
 	$Tween.interpolate_property(
 		self,
 		"position",

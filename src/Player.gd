@@ -141,7 +141,7 @@ func update_moving():
 
 func die():
 	velocity = Vector2()
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	if $AnimationPlayer.current_animation == "Dead": return
 	$AnimationPlayer.play("Dead")
 	yield($AnimationPlayer, "animation_finished")
