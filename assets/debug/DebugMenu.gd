@@ -107,3 +107,8 @@ func _on_MoveLeapsButton_pressed() -> void:
 func _on_MoveBoundsButton_pressed() -> void:
 	if not Global.LevelManager or not Global.LevelManager.level: return
 	move_player("Bounds")
+
+
+func _on_MainMenuButton_pressed() -> void:
+	if Global.LevelManager:
+		Global.LevelManager.load_main_menu(not LevelTransitionCheckBox.pressed)

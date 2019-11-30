@@ -146,3 +146,8 @@ func die():
 	$AnimationPlayer.play("Dead")
 	yield($AnimationPlayer, "animation_finished")
 	emit_signal("death", self)
+
+
+func _input(event: InputEvent):
+	if Input.is_action_just_pressed("ui_cancel"):
+		die()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/4222-pixelland-by-kevin-macleod.ogg-4b41a94a7dfc7c8c8ec07ec07e1d1d0c.oggstr"
+
+[deps]
+
+source_file="res://assets/music/4222-pixelland-by-kevin-macleod.ogg"
+dest_files=[ "res://.import/4222-pixelland-by-kevin-macleod.ogg-4b41a94a7dfc7c8c8ec07ec07e1d1d0c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

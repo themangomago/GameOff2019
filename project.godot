@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "MusicPlayer",
+"language": "GDScript",
+"path": "res://src/MusicPlayer.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Player.gd"
 } ]
 _global_script_class_icons={
+"MusicPlayer": "",
 "Player": ""
 }
 
@@ -28,6 +34,7 @@ config/icon="res://icon.png"
 
 Global="*res://src/Global.gd"
 Types="*res://src/Types.gd"
+Music="*res://src/Music.gd"
 
 [debug]
 

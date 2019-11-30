@@ -9,6 +9,9 @@ func _ready() -> void:
 	assert(music_bus != 0)
 	if Global.DebugMenu:
 		find_node("DebugCheckBox").pressed = Global.DebugMenu.visible
+	
+	_on_SoundSlider_value_changed($PC/VBC/HBC2/SoundSlider.value, true)
+	_on_MusicSlider_value_changed($PC/VBC/HBC1/MusicSlider.value, true)
 
 
 func get_volume_db(value):
@@ -18,15 +21,16 @@ func get_volume_db(value):
 	#return 2*-linear2db(46-value*5)
 
 
-func _on_SoundSlider_value_changed(value: float) -> void:
+func _on_SoundSlider_value_changed(value: float, silent=false) -> void:
 	assert(0 <= value and value <= 10)
 	AudioServer.set_bus_mute(sound_bus, value == 0)
 	if value != 0:
 		AudioServer.set_bus_volume_db(sound_bus, get_volume_db(value))
-	$SampleSoundEffect.play()
+	if not silent:
+		$SampleSoundEffect.play()
 
 
-func _on_MusicSlider_value_changed(value: float) -> void:
+func _on_MusicSlider_value_changed(value: float, silent=false) -> void:
 	assert(0 <= value and value <= 10)
 	AudioServer.set_bus_mute(music_bus, value == 0)
 	if value != 0:

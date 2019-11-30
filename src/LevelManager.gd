@@ -53,7 +53,9 @@ func fade_in():
 	$Control.release_focus()
 	$Control.mouse_filter = Control.MOUSE_FILTER_STOP
 	yield(_wait_for_anim("FadeIn"), "completed")
-	$Control.mouse_filter = Control.MOUSE_FILTER_PASS
+	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
 func fade_out():
 	# Use with yield(fade_out(), "completed")
 	$Control.grab_focus()
@@ -71,6 +73,7 @@ func load_main_menu(instantly=false):
 	main_menu.connect("change_level", self, "_on_main_menu_change_level")
 	if not instantly:
 		fade_in()
+
 
 func clear_level():
 	if level:

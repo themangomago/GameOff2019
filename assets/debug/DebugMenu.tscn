@@ -43,14 +43,14 @@ text = "Debug"
 [node name="SettingsMenu" type="PanelContainer" parent="CanvasLayer/Control/VBC"]
 margin_top = 42.0
 margin_right = 181.0
-margin_bottom = 410.0
+margin_bottom = 440.0
 mouse_filter = 2
 
 [node name="VBC" type="VBoxContainer" parent="CanvasLayer/Control/VBC/SettingsMenu"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 174.0
-margin_bottom = 361.0
+margin_bottom = 391.0
 mouse_filter = 2
 custom_constants/separation = 10
 
@@ -247,6 +247,12 @@ text = "Toggle Lights"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Control/VBC/SettingsMenu/VBC"]
+margin_top = 364.0
+margin_right = 167.0
+margin_bottom = 384.0
+text = "Back to Main Menu"
 [connection signal="toggled" from="CanvasLayer/Control/VBC/PC1/ShowCheckBox" to="." method="_on_ShowCheckBox_toggled"]
 [connection signal="pressed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC1/ChangeLevelButton" to="." method="_on_ChangeLevelButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/MoveLeapsButton" to="." method="_on_MoveLeapsButton_pressed"]
@@ -262,3 +268,4 @@ __meta__ = {
 [connection signal="toggled" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC4/TimescaleCheckBox" to="." method="_on_TimescaleCheckBox_toggled"]
 [connection signal="value_changed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/HBC4/TimescaleSpinBox" to="." method="_on_TimescaleSpinBox_value_changed"]
 [connection signal="button_up" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/LightCtrl/LightBtn" to="." method="_on_LightBtn_button_up"]
+[connection signal="pressed" from="CanvasLayer/Control/VBC/SettingsMenu/VBC/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
