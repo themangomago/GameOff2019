@@ -11,7 +11,7 @@ var current_level := 0
 var level: Node
 var levels := [
 	{
-		scene = preload("res://assets/levels/Level4.tscn"),
+		scene = preload("res://assets/levels/Level100.tscn"),
 		title = "Baby Leaps",
 		description = "One small leap for man...",
 	},
@@ -25,7 +25,11 @@ var levels := [
 		title = "Radical Level",
 		description = "",
 	},
-	
+	{
+		scene = preload("res://assets/levels/Level4.tscn"),
+		title = "Old Level",
+		description = "",
+	}
 ]
 
 var leaps: Node

@@ -11,7 +11,7 @@ func _ready():
 	
 	$TextureRect.rect_position = Vector2(11, 16 + float(height) * 16)
 	$TextureRect.rect_size = Vector2(10, float(height) * 16)
-	$KinematicBody2D/CollisionShape2D.position = Vector2(5, 16 + (float(height) * 16)/2)
+	$KinematicBody2D/CollisionShape2D.position.y = 16 + (float(height) * 16)/2
 
 
 func activate():
@@ -39,9 +39,10 @@ func _move(pos):
 	
 	var shape = RectangleShape2D.new()
 	#80  48
-	shape.extents = Vector2(8 , (pos + 16)/2)
+	shape.extents.y = (pos + 16)
+	shape.extents.x = $KinematicBody2D/CollisionShape2D.shape.extents.x
 	$KinematicBody2D/CollisionShape2D.set_shape(shape)
-	$KinematicBody2D/CollisionShape2D.position = Vector2(5, pos/2 + 16 * pos / (height * 16))
+	$KinematicBody2D/CollisionShape2D.position.y = pos/2 + 16 * pos / (height * 16)
 
 	
 	
